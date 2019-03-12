@@ -6,8 +6,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <p id="from"></p>
-        <p id="to"></p>
+        <form id="input-form">
+            <div class="form-group">
+                <label for="from">Input</label>
+                <textarea class="form-control" id="from" rows="3"></textarea>
+            </div>
+            <button data-action="encode" type="submit" class="btn btn-primary">Encode</button>
+            <button data-action="decode" type="submit" class="btn btn-primary">Decode</button>
+        </form>
+        <label for="to">Output</label>
+        <p id=to></p>
         <script type="text/javascript" src="app.js"></script>
     </body>
 </html>

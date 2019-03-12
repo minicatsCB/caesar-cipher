@@ -59,11 +59,32 @@ let alphabetByIndices = {
 let fromElement = document.getElementById("from");
 let toElement = document.getElementById("to");
 
+document.getElementById("input-form").addEventListener("submit", actionManager);
+
 // Cipher constants
 let offset = 6;
 
+function actionManager(ev){
+    ev.preventDefault();
+    
+    let action = ev.explicitOriginalTarget.dataset.action;
+    switch (action) {
+        case "encode":
+            result = encode();
+            break;
+        case "decode":
+            result = decode();
+            break;
+        default:
+            result = "";
+            break;
+    }
+
+    toElement.innerText = result;
+}
+
 function encode() {
-    let fromLetters = fromElement.innerText.toLowerCase();
+    let fromLetters = fromElement.value.toLowerCase();
     let alphabetLength = Object.keys(alphabetByLetters).length;
     let toLetters = fromLetters.split("")
                                 .map(letter => (alphabetByLetters[letter] + offset) % alphabetLength)
@@ -71,10 +92,11 @@ function encode() {
                                 .join("");
 
     console.log(fromLetters + " ---> " + toLetters);
+    return toLetters;
 }
 
 function decode() {
-    let fromLetters = fromElement.innerText.toLowerCase();
+    let fromLetters = fromElement.value.toLowerCase();
     let alphabetLength = Object.keys(alphabetByLetters).length;
     let toLetters = fromLetters.split("")
                                 .map(letter => {
@@ -86,4 +108,5 @@ function decode() {
                                 .join("");
 
     console.log(fromLetters + " ---> " + toLetters);
+    return toLetters;
 }

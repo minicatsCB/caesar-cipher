@@ -4,31 +4,34 @@
         <meta charset="utf-8">
         <title>Caesar Cipher</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="app.css">
     </head>
     <body>
-        <div class="row">
-            <div class="col-lg-5">
-                <form id="input-form">
-                    <div class="form-group">
-                        <label for="from">Input</label>
-                        <textarea id="from" class="form-control" rows="3" placeholder="Text to cipher" required></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-2">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">ROT</span>
-                    </div>
-                    <input id="offset" type="number" class="form-control" min="0" value="1" required>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <form id="input-form">
+                        <div class="form-group">
+                            <label for="from">Input</label>
+                            <textarea id="from" class="form-control" rows="3" placeholder="Text to cipher" required></textarea>
+                        </div>
+                    </form>
                 </div>
+                <div class="col-lg-2">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">ROT</span>
+                        </div>
+                        <input id="offset" type="number" class="form-control" min="0" value="1" required>
+                    </div>
 
-                <button data-action="encode" type="submit" class="btn btn-primary" form="input-form">Encode</button>
-                <button data-action="decode" type="submit" class="btn btn-primary" form="input-form">Decode</button>
-            </div>
-            <div class="col-lg-5">
-                <label for="to">Output</label>
-                <p id=to></p>
+                    <button data-action="encode" type="submit" class="btn btn-primary" form="input-form">Encode</button>
+                    <button data-action="decode" type="submit" class="btn btn-primary" form="input-form">Decode</button>
+                </div>
+                <div class="col-lg-5">
+                    <label for="to">Output</label>
+                    <p id=to></p>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="app.js"></script>

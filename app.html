@@ -11,11 +11,18 @@
                 <form id="input-form">
                     <div class="form-group">
                         <label for="from">Input</label>
-                        <textarea class="form-control" id="from" rows="3"></textarea>
+                        <textarea id="from" class="form-control" rows="3" placeholder="Text to cipher" required></textarea>
                     </div>
                 </form>
             </div>
             <div class="col-lg-2">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">ROT</span>
+                    </div>
+                    <input id="offset" type="number" class="form-control" min="0" value="1" required>
+                </div>
+
                 <button data-action="encode" type="submit" class="btn btn-primary" form="input-form">Encode</button>
                 <button data-action="decode" type="submit" class="btn btn-primary" form="input-form">Decode</button>
             </div>

@@ -4,20 +4,21 @@
         <meta charset="utf-8">
         <title>Caesar Cipher</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Nova+Square" rel="stylesheet">
         <link rel="stylesheet" href="app.css">
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-12 col-lg-5">
                     <form id="input-form">
                         <div class="form-group">
-                            <label for="from">Input</label>
-                            <textarea id="from" class="form-control" rows="3" placeholder="Text to cipher" required></textarea>
+                            <h1 for="from">Input</h1>
+                            <textarea id="from" class="form-control border-0" rows="3" placeholder="Text to cipher" required></textarea>
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-12 col-lg-2 border-left border-right pt-lg-5">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">ROT</span>
@@ -25,11 +26,11 @@
                         <input id="offset" type="number" class="form-control" min="0" value="1" required>
                     </div>
 
-                    <button data-action="encode" type="submit" class="btn btn-primary" form="input-form">Encode</button>
-                    <button data-action="decode" type="submit" class="btn btn-primary" form="input-form">Decode</button>
+                    <button data-action="encode" type="submit" class="btn btn-primary w-100 my-1" form="input-form">Encode</button>
+                    <button data-action="decode" type="submit" class="btn btn-primary w-100 my-1" form="input-form">Decode</button>
                 </div>
-                <div class="col-lg-5">
-                    <label for="to">Output</label>
+                <div class="col-12 col-lg-5">
+                    <h1 for="to">Output</h1>
                     <p id=to></p>
                 </div>
             </div>

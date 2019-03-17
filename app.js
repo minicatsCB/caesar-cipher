@@ -95,7 +95,6 @@ function encode() {
                                 .map(index => alphabetByIndices[index])
                                 .join("");
 
-    console.log(fromLetters + " ---> " + toLetters);
     return toLetters;
 }
 
@@ -107,7 +106,6 @@ function decode() {
                                 .map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
                                 .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])
                                 .join("");
-
-    console.log(fromLetters + " ---> " + toLetters);
+                                
     return toLetters;
 }

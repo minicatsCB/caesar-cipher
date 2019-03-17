@@ -65,6 +65,8 @@ let fromElement = document.getElementById("from");
 let toElement = document.getElementById("to");
 let offsetElement = document.getElementById("offset");
 
+let alphabetLength = Object.keys(alphabetByLetters).length;
+
 document.getElementById("input-form").addEventListener("submit", actionManager);
 
 function actionManager(ev){
@@ -86,26 +88,34 @@ function actionManager(ev){
     toElement.innerText = result;
 }
 
-function encode() {
-    let fromLetters = fromElement.value.toLowerCase();
-    let offset = parseInt(offsetElement.value);
-    let alphabetLength = Object.keys(alphabetByLetters).length;
-    let toLetters = fromLetters.split("")
-                                .map(letter => ((alphabetByLetters[letter] % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
-                                .map(index => alphabetByIndices[index])
-                                .join("");
+function encodeShift(word, offset, alphabetLength){
+    return word.split("").map(letter => ((alphabetByLetters[letter] % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
+                        .map(index => alphabetByIndices[index])
+                        .join("");
+}
 
-    return toLetters;
+function decodeShift(word, offset, alphabetLength){
+    return word.split("").map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
+                .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])
+                .join("");
+}
+
+function encode() {
+    let fromWords = fromElement.value.toLowerCase().split(" ");
+    let offset = parseInt(offsetElement.value);
+    let toWords = fromWords.map(word => {
+        return encodeShift(word, offset, alphabetLength);
+    }).join(" ");
+
+    return toWords;
 }
 
 function decode() {
-    let fromLetters = fromElement.value.toLowerCase();
+    let fromWords = fromElement.value.toLowerCase().split(" ");
     let offset = parseInt(offsetElement.value);
-    let alphabetLength = Object.keys(alphabetByLetters).length;
-    let toLetters = fromLetters.split("")
-                                .map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
-                                .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])
-                                .join("");
-                                
-    return toLetters;
+    let toWords = fromWords.map(word => {
+        return decodeShift(word, offset, alphabetLength);
+    }).join(" ");
+
+    return toWords;
 }

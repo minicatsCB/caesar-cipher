@@ -86,7 +86,7 @@ function encode() {
     let offset = parseInt(offsetElement.value);
     let alphabetLength = Object.keys(alphabetByLetters).length;
     let toLetters = fromLetters.split("")
-                                .map(letter => (alphabetByLetters[letter] + offset) % alphabetLength)
+                                .map(letter => ((alphabetByLetters[letter] % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
                                 .map(index => alphabetByIndices[index])
                                 .join("");
 
@@ -99,12 +99,8 @@ function decode() {
     let offset = parseInt(offsetElement.value);
     let alphabetLength = Object.keys(alphabetByLetters).length;
     let toLetters = fromLetters.split("")
-                                .map(letter => {
-                                    let difference = (alphabetByLetters[letter] - offset);
-                                    return difference < 0 ? (alphabetLength + difference) % alphabetLength
-                                                          : difference % alphabetLength;
-                                })
-                                .map(index => alphabetByIndices[index])
+                                .map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
+                                .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])
                                 .join("");
 
     console.log(fromLetters + " ---> " + toLetters);

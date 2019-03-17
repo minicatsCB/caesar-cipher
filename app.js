@@ -56,6 +56,11 @@ let alphabetByIndices = {
   "25": "z"
 };
 
+// Thing I learnt: in JavaScript what we maybe think is the modular operator
+// is actually the remainder operator (they are not the same). Related to commit 38e0b02f76d72f8c5d20a2932311ed45a3e596eb.
+// See: https://crypto.stackexchange.com/questions/42059/using-a-caesar-cipher-with-a-key-higher-than-26
+// See: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-addition-and-subtraction
+
 let fromElement = document.getElementById("from");
 let toElement = document.getElementById("to");
 let offsetElement = document.getElementById("offset");

@@ -8,6 +8,10 @@ body {
     font-family: 'Nova Square', cursive;
 }
 
+.intro {
+    color: #f6e9e9;
+}
+
 h1 {
     color: #e16428;
 }

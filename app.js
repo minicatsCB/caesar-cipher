@@ -88,14 +88,14 @@ function actionManager(ev){
     toElement.innerText = result;
 }
 
-function encodeShift(word, offset, alphabetLength){
+function encodeShift(word, offset){
     return word.split("").map(character => alphabetByLetters[character])
                         .map(index => ((index % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
                         .map(index => alphabetByIndices[index])
                         .join("");
 }
 
-function decodeShift(word, offset, alphabetLength){
+function decodeShift(word, offset){
     return word.split("").map(character => alphabetByLetters[character])
                         .map(index => ((index % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
                         .map(index => index >= 0 ? index : alphabetLength + index)
@@ -107,7 +107,7 @@ function encode() {
     let fromWords = fromElement.value.toLowerCase().split(" ");
     let offset = parseInt(offsetElement.value);
     let toWords = fromWords.map(word => {
-        return encodeShift(word, offset, alphabetLength);
+        return encodeShift(word, offset);
     }).join(" ");
 
     return toWords;
@@ -117,7 +117,7 @@ function decode() {
     let fromWords = fromElement.value.toLowerCase().split(" ");
     let offset = parseInt(offsetElement.value);
     let toWords = fromWords.map(word => {
-        return decodeShift(word, offset, alphabetLength);
+        return decodeShift(word, offset);
     }).join(" ");
 
     return toWords;

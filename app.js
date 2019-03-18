@@ -89,15 +89,18 @@ function actionManager(ev){
 }
 
 function encodeShift(word, offset, alphabetLength){
-    return word.split("").map(letter => ((alphabetByLetters[letter] % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
+    return word.split("").map(character => alphabetByLetters[character])
+                        .map(index => ((index % alphabetLength) + (offset % alphabetLength)) % alphabetLength)
                         .map(index => alphabetByIndices[index])
                         .join("");
 }
 
 function decodeShift(word, offset, alphabetLength){
-    return word.split("").map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
-                .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])
-                .join("");
+    return word.split("").map(character => alphabetByLetters[character])
+                        .map(index => ((index % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
+                        .map(index => index >= 0 ? index : alphabetLength + index)
+                        .map(index => alphabetByIndices[index])
+                        .join("");
 }
 
 function encode() {

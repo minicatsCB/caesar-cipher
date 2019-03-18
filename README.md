@@ -1,4 +1,6 @@
 # caesar-cipher
+![GitHub Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/1920px-Caesar3.svg.png)
+
 I implemented the algorithm based on its mathematical expression extracted from [here](https://en.wikipedia.org/wiki/Caesar_cipher).
 
 ## Pseudocode

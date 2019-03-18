@@ -46,11 +46,10 @@ From the second link I applied modular arithmetic to "decompose" the operation t
 
 
 ### Decoding
-
-The same with the decoding operation:
-
 ![equation](https://latex.codecogs.com/svg.latex?{\displaystyle&space;D_{n}(x)=(x-n)\mod&space;{26}.})
 
+
+The same with the decoding operation (extracted code):
 ```
 .map(letter => ((alphabetByLetters[letter] % alphabetLength) - (offset % alphabetLength)) % alphabetLength)
 .map(index => index >= 0 ? alphabetByIndices[index] : alphabetByIndices[alphabetLength + index])

@@ -1,0 +1,27 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #363333;
+    font-family: 'Nova Square', cursive;
+}
+
+.intro {
+    color: #f6e9e9;
+}
+
+h1 {
+    color: #e16428;
+}
+
+#from, #to {
+    font-size: 1.5rem;
+    color: #f6e9e9;
+    background-color: transparent;
+}
+
+.btn {
+    background-color: #e16428;
+}
